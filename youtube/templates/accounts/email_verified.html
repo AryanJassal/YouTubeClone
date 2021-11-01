@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Activate your Account{% endblock %}
+
+{% block body %}
+    <script>
+        currentPage = 'activate-user';
+    </script>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-7 col-sm-12">
+                <div class="col wrapper p-4 px-5">
+                    <h1 class="title maintitle mt-2 mb-1">Account Activation</h1>
+                    <p class="title subtitle mb-4">Get unlimited and unrestricted access to enjoy Home Server!</p>
+                    <hr class="mb-4">
+                    {% if verified %}
+                        <h2 class="fw-600">All done!</h2>
+                        <p class="title subtitle">
+                            Your email has been verified! <a href="{% url 'login' %}">Login here!</a>
+                        </p>
+                    {% elif invalid %}
+                        <h2 class="fw-600">Uh-oh!</h2>
+                        <p class="title subtitle">
+                            The account activation link was invalid! <a href="#">Please request for another link.</a>
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

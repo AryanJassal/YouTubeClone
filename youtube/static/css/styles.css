@@ -1,0 +1,115 @@
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'Montserrat', sans-serif;
+    color: #475d5d;
+}
+
+a, a:visited
+{
+    font-family: 'Montserrat', sans-serif;
+    color: dodgerblue;
+    transition: color 100ms ease-in;
+}
+
+a:hover { color: #e8af9b; }
+
+nav
+{
+    background-color: white !important;
+}
+
+.btn-close
+{
+    margin-top: -0.4rem;
+}
+
+.navbar-brand
+{
+    font-size: 1.8rem;
+}
+
+.body-gradient
+{
+    background-image: linear-gradient(
+        225deg,
+        #e8a876 0%,
+        #dcb5ff 50%,
+        #85dcb0 100%
+    );
+    height: 100vh;
+}
+
+.wrapper
+{
+    border-radius: 20px;
+    background-color: white;
+}
+
+.title
+{
+    color: #475d5d;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.maintitle
+{
+    font-size: 3.5rem;
+    font-weight: 800;
+}
+
+.subtitle
+{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.btn-success
+{
+    background-color: #80c9a2;
+    border-color: #80c9a2;
+    color: white;
+    font-weight: bold;
+}
+.btn-success:hover
+{
+    background-color: #5e9d7f;
+    border-color: #5e9d7f;
+}
+
+.profile-image
+{
+    width: 40px;
+    max-width: 40px;
+    height: 40px;
+    max-height: 40px;
+}
+
+.profile-image-large
+{
+    width: 350px;
+    max-width: 350px;
+    height: 350px;
+    max-height: 350px;
+}
+
+.text
+{
+    font-size: 18pt;
+}
+
+.list-group
+{
+    border-radius: 8px;
+}
+
+.edit-profile-photo
+{
+    margin-top: -0.75rem;
+    margin-left: -0.75rem;
+}
+
+.profile-photo
+{
+    background-size: cover !important;
+    border-radius: 10px;
+}

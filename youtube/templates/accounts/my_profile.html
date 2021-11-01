@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}My Profile{% endblock %}
+
+{% block body %}
+    <script>
+        currentPage = 'my-profile'
+    </script>
+    <style>
+    .profile-photo
+    {
+        background-image: url('{{ user.profile_image.url }}');
+        opacity: 1;
+        transition: all 200ms ease;
+    }
+
+    #change-pfp-text
+    {
+        opacity: 0;
+        transition: all 200ms ease;
+    }
+
+    .profile-image-large:hover .profile-photo
+    {
+        opacity: 80%;
+    }
+
+    .profile-image-large:hover > .change-pfp-text > #change-pfp-text
+    {
+        opacity: 1;
+    }
+    </style>
+
+    <div class="container my-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-12 col-sm-12">
+                <div class="col wrapper p-4 px-5" style="height: 600px;">
+                    <h1 class="title maintitle">My Profile</h1>
+                    <hr class="my-4">
+
+                    <form action="" autocomplete="off" enctype="multipart/form-data" class="mt-5">
+                        {% csrf_token %}
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="profile-image-large" style="background-color: black; border-radius: 11px; position: relative;">
+                                    <div class="profile-photo pointer all-100"
+                                            id="profile-photo-container"
+                                            style="z-index: 10; top: 0; left: 0; bottom: 0; right: 0; position: absolute;">
+                                    </div>
+                                    <div class="all-100 d-flex align-items-center text-center change-pfp-text pointer">
+                                        <p class="text font-monterrat text-white fw-500" id="change-pfp-text" style="z-index: 100;">Click to change your profile photo</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="first-name" class="font-monterrat" style="font-size: 17pt;">First Name</label>
+                                    {% render_field form.first_name value=user.first_name %}
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
