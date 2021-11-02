@@ -1,0 +1,4 @@
+2 November 2021 [build 20211102-01]:
+    Added favicon
+    Removed <body> code from base.html
+    Started keeping accurate track with changelogs
