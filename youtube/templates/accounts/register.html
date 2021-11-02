@@ -1,207 +1,225 @@
 {% extends 'base.html' %}
 {% load widget_tweaks %}
-{% load coretags %}
+
+{% comment %}
+    {% load coretags %}
+{% endcomment %}
 
 {% block title %}Sign Up{% endblock %}
 
 {% block body %}
-    <script>
+<!-- <script>
         currentPage = 'register';
-    </script>
+    </script> -->
 
-    <div class="container my-5">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-lg-7 col-md-9 col-sm-12">
-                <div class="col wrapper p-4 px-5">
-                    {% if not pending_verification %}
-                        <h1 class="title maintitle mt-2 mb-1">Sign Up</h1>
-                        <p class="title subtitle mb-5">Get unlimited and unrestricted access to enjoy {% get_site_name %}!</p>
-                        <form action="{% url 'core:register' %}" method="POST" autocomplete="off">
-                            {% csrf_token %}
+<div class="container my-5">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-lg-7 col-md-9 col-sm-12">
+            <div class="col wrapper p-4 px-5">
+                {% if not pending_verification %}
+                <h1 class="title maintitle mt-2 mb-1">Sign Up</h1>
+                <p class="title subtitle mb-5">Get unlimited and unrestricted access to enjoy Youtube!</p>
+                <form action="{% url 'register' %}" method="POST" autocomplete="off">
+                    {% csrf_token %}
 
-                            {% if form.non_field_errors %}
-                                {% for error in form.non_field_errors %}
-                                    <div class="alert alert-danger alert-dismissable fade show p-2 mb-4" role="alert">
+                    {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger alert-dismissable fade show p-2 mb-4" role="alert">
+                        {{ error }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+                            style="outline: none !important; box-shadow: none !important;"></button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+                    <div class="row mb-3">
+                        <div class="col-lg-6 col-sm-12 gx-3">
+                            <div class="form-group">
+                                {% if returned %}
+                                {% if not form.first_name.errors %}
+                                {{ form.first_name|add_class:'is-valid' }}
+                                {% else %}
+                                {{ form.first_name|add_class:'is-invalid' }}
+                                {% endif %}
+                                {% else %}
+                                {{ form.first_name }}
+                                {% endif %}
+                                <label class="form-floating-label font-comfortaa" for="first-name"
+                                    onclick="document.querySelector('#first-name').focus();">{{ form.first_name.label}}
+                                </label>
+                            </div>
+                            {% if form.first_name.errors %}
+                            <div class="form-field-error-wrapper">
+                                {% for error in form.first_name.errors %}
+                                <div class="form-field-error font-comfortaa">
+                                    {{ error }}
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="col-lg-6 col-sm-12 gx-3">
+                            <div class="form-group">
+                                {% if returned %}
+                                    {% if not form.last_name.errors %}
+                                        {{ form.last_name|add_class:'is-valid' }}
+                                    {% else %}
+                                        {{ form.last_name|add_class:'is-invalid' }}
+                                    {% endif %}
+                                {% else %}
+                                    {{ form.last_name }}
+                                {% endif %}
+
+                                <label class="form-floating-label font-comfortaa" for="last-name"
+                                    onclick="document.querySelector('#last-name').focus();">{{ form.last_name.label
+                                    }}</label>
+                            </div>
+                            {% if form.last_name.errors %}
+                            <div class="form-field-error-wrapper">
+                                {% for error in form.last_name.errors %}
+                                    <div class="form-field-error font-comfortaa">
                                         {{ error }}
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="outline: none !important; box-shadow: none !important;"></button>
                                     </div>
                                 {% endfor %}
+                            </div>
                             {% endif %}
+                        </div>
+                    </div>
 
-                            <div class="row mb-3">
-                                <div class="col-lg-6 col-sm-12 gx-3">
-                                    <div class="form-group">
-                                        {% if returned %}
-                                            {% if not form.first_name.errors %}
-                                                {{ form.first_name|add_class:'is-valid' }}
-                                            {% else %}
-                                                {{ form.first_name|add_class:'is-invalid' }}
-                                            {% endif %}
-                                        {% else %}
-                                            {{ form.first_name }}
-                                        {% endif %}
-                                        <label class="form-floating-label font-comfortaa" for="first-name" onclick="document.querySelector('#first-name').focus();">{{ form.first_name.label }}</label>
-                                    </div>
-                                    {% if form.first_name.errors %}
-                                        <div class="form-field-error-wrapper">
-                                            {% for error in form.first_name.errors %}
-                                                <div class="form-field-error font-comfortaa">
-                                                    {{ error }}
-                                                </div>
-                                            {% endfor %}
-                                        </div>
-                                    {% endif %}
+                    <div class="row mb-3">
+                        <div class="col col-sm-12 gx-3">
+                            <div class="form-group">
+                                {% if returned %}
+                                {% if not form.email.errors %}
+                                {{ form.email|add_class:'is-valid' }}
+                                {% else %}
+                                {{ form.email|add_class:'is-invalid' }}
+                                {% endif %}
+                                {% else %}
+                                {{ form.email }}
+                                {% endif %}
+                                <label class="form-floating-label font-comfortaa" for="email"
+                                    onclick="document.querySelector('#email').focus();">{{ form.email.label }}</label>
+                            </div>
+                            {% if form.email.errors %}
+                            <div class="form-field-error-wrapper">
+                                {% for error in form.email.errors %}
+                                <div class="form-field-error font-comfortaa">
+                                    {{ error }}
                                 </div>
-                                <div class="col-lg-6 col-sm-12 gx-3">
-                                    <div class="form-group">
-                                        {% if returned %}
-                                            {% if not form.last_name.errors %}
-                                                {{ form.last_name|add_class:'is-valid' }}
-                                            {% else %}
-                                                {{ form.last_name|add_class:'is-invalid' }}
-                                            {% endif %}
-                                        {% else %}
-                                            {{ form.last_name }}
-                                        {% endif %}
-                                        <label class="form-floating-label font-comfortaa" for="last-name" onclick="document.querySelector('#last-name').focus();">{{ form.last_name.label }}</label>
-                                    </div>
-                                    {% if form.last_name.errors %}
-                                        <div class="form-field-error-wrapper">
-                                            {% for error in form.last_name.errors %}
-                                                <div class="form-field-error font-comfortaa">
-                                                    {{ error }}
-                                                </div>
-                                            {% endfor %}
-                                        </div>
-                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col col-sm-12 gx-3">
+                            <div class="form-group">
+                                {% if returned %}
+                                {% if not form.username.errors %}
+                                {{ form.username|add_class:'is-valid' }}
+                                {% else %}
+                                {{ form.username|add_class:'is-invalid' }}
+                                {% endif %}
+                                {% else %}
+                                {{ form.username }}
+                                {% endif %}
+                                <label class="form-floating-label font-comfortaa" for="username"
+                                    onclick="document.querySelector('#username').focus();">{{ form.username.label
+                                    }}</label>
+                            </div>
+                            {% if form.username.errors %}
+                            <div class="form-field-error-wrapper">
+                                {% for error in form.username.errors %}
+                                <div class="form-field-error font-comfortaa">
+                                    {{ error }}
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-lg-6 col-sm-12 gx-3">
+                            <div class="form-group">
+                                {% if returned %}
+                                {% if not form.password.errors %}
+                                {{ form.password }}
+                                {% else %}
+                                {{ form.password|add_class:'is-invalid' }}
+                                {% endif %}
+                                {% else %}
+                                {{ form.password }}
+                                {% endif %}
+                                <label class="form-floating-label font-comfortaa" for="password"
+                                    onclick="document.querySelector('#password').focus();">{{ form.password.label
+                                    }}</label>
+                            </div>
+                            {% if form.password.errors %}
+                            <div class="form-field-error-wrapper">
+                                {% for error in form.password.errors %}
+                                <div class="form-field-error font-comfortaa">
+                                    {{ error }}
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="col-lg-6 col-sm-12 gx-3">
+                            <div class="form-group has-error">
+                                {% if returned %}
+                                {% if not form.confirm.errors %}
+                                {{ form.confirm }}
+                                {% else %}
+                                {{ form.confirm|add_class:'is-invalid' }}
+                                {% endif %}
+                                {% else %}
+                                {{ form.confirm }}
+                                {% endif %}
+                                <label class="form-floating-label font-comfortaa" for="confirm"
+                                    onclick="document.querySelector('#confirm-password').focus();">{{ form.confirm.label
+                                    }}</label>
+                            </div>
+                            {% if form.confirm.errors %}
+                            <div class="form-field-error-wrapper">
+                                {% for error in form.confirm.errors %}
+                                <div class="form-field-error font-comfortaa">
+                                    {{ error }}
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <div class="row align-items-center justify-content-center text-center">
+                            <div class="col-lg-4 col-sm-12">
+                                <div class="col">
+                                    <input type="submit" class="btn btn-success font-comfortaa py-2" value="Sign Up"
+                                        style="width: 100%;">
                                 </div>
                             </div>
-
-                            <div class="row mb-3">
-                                <div class="col col-sm-12 gx-3">
-                                    <div class="form-group">
-                                        {% if returned %}
-                                            {% if not form.email.errors %}
-                                                {{ form.email|add_class:'is-valid' }}
-                                            {% else %}
-                                                {{ form.email|add_class:'is-invalid' }}
-                                            {% endif %}
-                                        {% else %}
-                                            {{ form.email }}
-                                        {% endif %}
-                                        <label class="form-floating-label font-comfortaa" for="email" onclick="document.querySelector('#email').focus();">{{ form.email.label }}</label>
-                                    </div>
-                                    {% if form.email.errors %}
-                                        <div class="form-field-error-wrapper">
-                                            {% for error in form.email.errors %}
-                                                <div class="form-field-error font-comfortaa">
-                                                    {{ error }}
-                                                </div>
-                                            {% endfor %}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col col-sm-12 gx-3">
-                                    <div class="form-group">
-                                        {% if returned %}
-                                            {% if not form.username.errors %}
-                                                {{ form.username|add_class:'is-valid' }}
-                                            {% else %}
-                                                {{ form.username|add_class:'is-invalid' }}
-                                            {% endif %}
-                                        {% else %}
-                                            {{ form.username }}
-                                        {% endif %}
-                                        <label class="form-floating-label font-comfortaa" for="username" onclick="document.querySelector('#username').focus();">{{ form.username.label }}</label>
-                                    </div>
-                                    {% if form.username.errors %}
-                                        <div class="form-field-error-wrapper">
-                                            {% for error in form.username.errors %}
-                                                <div class="form-field-error font-comfortaa">
-                                                    {{ error }}
-                                                </div>
-                                            {% endfor %}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-lg-6 col-sm-12 gx-3">
-                                    <div class="form-group">
-                                        {% if returned %}
-                                            {% if not form.password.errors %}
-                                                {{ form.password }}
-                                            {% else %}
-                                                {{ form.password|add_class:'is-invalid' }}
-                                            {% endif %}
-                                        {% else %}
-                                            {{ form.password }}
-                                        {% endif %}
-                                        <label class="form-floating-label font-comfortaa" for="password" onclick="document.querySelector('#password').focus();">{{ form.password.label }}</label>
-                                    </div>
-                                    {% if form.password.errors %}
-                                        <div class="form-field-error-wrapper">
-                                            {% for error in form.password.errors %}
-                                                <div class="form-field-error font-comfortaa">
-                                                    {{ error }}
-                                                </div>
-                                            {% endfor %}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                                <div class="col-lg-6 col-sm-12 gx-3">
-                                    <div class="form-group has-error">
-                                        {% if returned %}
-                                            {% if not form.confirm.errors %}
-                                                {{ form.confirm }}
-                                            {% else %}
-                                                {{ form.confirm|add_class:'is-invalid' }}
-                                            {% endif %}
-                                        {% else %}
-                                            {{ form.confirm }}
-                                        {% endif %}
-                                        <label class="form-floating-label font-comfortaa" for="confirm" onclick="document.querySelector('#confirm-password').focus();">{{ form.confirm.label }}</label>
-                                    </div>
-                                    {% if form.confirm.errors %}
-                                        <div class="form-field-error-wrapper">
-                                            {% for error in form.confirm.errors %}
-                                                <div class="form-field-error font-comfortaa">
-                                                    {{ error }}
-                                                </div>
-                                            {% endfor %}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            </div>
-
-                            <div class="mt-3">
-                                <div class="row align-items-center justify-content-center text-center">
-                                    <div class="col-lg-4 col-sm-12">
-                                        <div class="col">
-                                            <input type="submit" class="btn btn-success font-comfortaa py-2" value="Sign Up" style="width: 100%;">
-                                        </div>
-                                    </div>
-                                    <p class="font-comfortaa mt-4">Already a member? <a href="{% url 'core:login' %}" class="form-link">Login here</a></p>
-                                </div>
-                            </div>
-                        </form>
-                    {% else %}
-                        <h1 class="title maintitle mt-2 mb-1">Sign Up</h1>
-                        <p class="title subtitle mb-4">Get unlimited and unrestricted access to enjoy Cyber Hub!</p>
-                        <hr class="mb-4">
-                        <h2 class="fw-600">Just one more step!</h2>
-                        <p class="title subtitle">
-                            Verify your email to finish the sign up process.
-                            <br>
-                            Check your spam folder if you still haven't received the verification email.</p>
-                    {% endif %}
-                </div>
+                            <p class="font-comfortaa mt-4">Already a member? <a href="#"
+                                    class="form-link">Login here</a></p>
+                        </div>
+                    </div>
+                </form>
+                {% else %}
+                <h1 class="title maintitle mt-2 mb-1">Sign Up</h1>
+                <p class="title subtitle mb-4">Get unlimited and unrestricted access to enjoy Youtube!</p>
+                <hr class="mb-4">
+                <h2 class="fw-600">Just one more step!</h2>
+                <p class="title subtitle">
+                    Verify your email to finish the sign up process.
+                    <br>
+                    Check your spam folder if you still haven't received the verification email.
+                </p>
+                {% endif %}
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
-

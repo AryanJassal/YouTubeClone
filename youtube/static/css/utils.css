@@ -1,0 +1,127 @@
+.nav-link
+{
+    text-align: center;
+    min-width: 5rem;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, #79ceff 50%);
+    color: black;
+    background-size: 100% 200%;
+    background-position: left top;
+    transition: all 500ms ease;
+}
+
+.nav-link:hover
+{
+    background-position: left bottom;
+    color: white !important;
+}
+
+.form-field
+{
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+
+.form-field-error
+{
+    color: red;
+    font-size: 11pt;
+    font-weight: bold;
+    margin-top: -0.6rem;
+    margin-left: 1rem;
+    padding-bottom: 5px;
+}
+
+.form-group
+{
+    position: relative;
+    height: 3rem;
+}
+
+.form-floating-label
+{
+    cursor: text;
+    font-size: 10pt;
+    position: absolute;
+    left: 0.7rem;
+    top: 0.7rem;
+    height: 0.9rem;
+    padding: 0 2.5rem 0 0.5rem;
+    background-color: white;
+    transition:
+        top 100ms ease-in,
+        left 100ms ease-in,
+        font-size 100ms ease-in,
+        padding 100ms ease-in;
+}
+
+.form-control:focus ~ .form-floating-label, .form-control:not(:placeholder-shown).form-control:not(:focus) ~ .form-floating-label
+{
+    top: -0.55rem;
+    left: 0.8rem;
+    font-size: 0.8rem;
+    padding: 0 0.5rem;
+}
+
+.form-group input:focus
+{
+    border-color: #79ceff;
+    box-shadow: none !important;
+}
+
+.navbar-nav .active
+{
+    background-color: #79ceff;
+    color: white !important;
+}
+
+.img-responsive
+{
+    max-width: 100% !important;
+    width: 100% !important;
+    max-height: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+}
+
+.pointer { cursor: pointer; }
+
+.dropdown-item
+{
+    color: #212529 !important;
+    transition: all 400ms ease;
+}
+
+.dropdown-item:hover
+{
+    background-color: #79ceff !important;
+    color: #f3f3f3 !important;
+}
+
+.dropdown-menu.show
+{
+    animation-name: fadein;
+    animation-duration: 400ms;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein
+{
+    from
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
+}
+
+.all-100
+{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.no-text-color-change, .no-text-color-change:hover, .no-text-color-change:visited { color: inherit; }

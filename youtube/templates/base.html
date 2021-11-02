@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+        <link href="{% static 'css/utils.css' %}" rel="stylesheet">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <title>{% block title %}YouTube{% endblock %}</title>
+    </head>
+    <body class="body-gradient">
+        <nav class="navbar navbar-expand-lg navbar-light p-0">
+            <div class="container-fluid">
+                <a href="{% url 'home' %}" class="navbar-brand font-comfortaa fw-700">Youtube</a>
+
+                <div class="me-auto">
+                    <ul class="navbar-nav">
+                        <li class="nav-item mx-1">
+                            <a href="{% url 'home' %}" class="nav-link fw-600" data-page="home">Home</a>
+                        </li>
+                        <li class="nav-item mx-1">
+                            <a href="#" class="nav-link fw-600" data-page="blog">Blog</a>
+                        </li>
+                        <li class="nav-item mx-1">
+                            <a href="#" class="nav-link fw-600" data-page="chat">Chat</a>
+                        </li>
+                        <li class="nav-item mx-1 dropdown">
+                            <a href="#" class="nav-link fw-600 dropdown-toggle" data-page="book-tracker" id="tools-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tools</a>
+                            <ul class="dropdown-menu" aria-labelledby="tools-dropdown">
+                                <li class="dropdown-item">
+                                    <a href="#" class="dropdown-item fw-600" data-page="book-tracker">Book Tracker</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#" class="dropdown-item fw-600" data-page="movie-tracker">Movie Tracker</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#" class="dropdown-item fw-600" data-page="anime-tracker">Anime Tracker</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item mx-1">
+                            <a href="#" class="nav-link fw-600" data-page="my-files">My Files</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="profile-image me-3">
+                        <a class="d-flex align-items-center" href="#" id="navbar-profile-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{ user.profile_image.url }}" onerror="this.onerror = null; this.src = '{% static "images/default_pfp.png" %}';" alt="pfp" class="rounded-circle img-responsive" loading="lazy">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end me-3" aria-labelledby="navbar-profile-dropdown">
+                            {% if user.is_authenticated %}
+                                <li>
+                                    <p class="font-monterrat px-3 py-1 mb-2">Signed in as<br><strong>{{ user.username }}</strong></p>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item pointer" href="#">My Profile</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item pointer">Settings</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item pointer" href="#">Logout</a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a class="dropdown-item pointer" href="#">Log In</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item pointer" href="{% url 'register' %}">Sign Up</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        {% block body %}{% endblock %}
+    </body>
+</html>
