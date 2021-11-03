@@ -118,10 +118,21 @@
     }
 }
 
-.all-100
+.all-100, .hw-100, .wh-100
 {
     width: 100% !important;
     height: 100% !important;
 }
 
 .no-text-color-change, .no-text-color-change:hover, .no-text-color-change:visited { color: inherit; }
+
+/*! keep in mind that this is a hacky method (i think) */
+.vertically-centered-div
+{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+}
