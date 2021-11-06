@@ -1,26 +1,48 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block body %}
-    <div class="body-container d-flex h-100">
+    <div class="body-container d-flex flex-row all-100">
         <div class="sidenav sidenav-dark">
+            <div class="youtube-logo-wrapper d-flex inline-flex">
+                <div class="menu-icon-wrapper menu-dark">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="youtube-logo">
+                    <a href="{% url 'home' %}">
+                        <img src="{% static 'images/youtube_logo.png' %}" alt="YouTube" class="img-responsive">
+                    </a>
+                </div>
+            </div>
         </div>
 
         <div class="mainpage-container d-flex all-100 flex-column">
             <div class="topnav topnav-dark">
             </div>
 
-            <div class="categories categories-dark d-flex px-3">
-                {% for category in categories %}
-                    {% if forloop.first %}
-                        <button class="category category-dark category-dark-selected rounded-pill d-flex font-roboto fw-400 my-auto mx-2">
-                            <div style="font-size: 11pt;" class="my-auto">{{ category }}</div>
-                        </button>
-                    {% else %}
-                        <button class="category category-dark rounded-pill d-flex font-roboto fw-400 my-auto mx-2">
-                            <div style="font-size: 11pt;" class="my-auto">{{ category }}</div>
-                        </button>
-                    {% endif %}
-                {% endfor %}
+            <div class="categories-wrapper d-flex flex-row">
+                <div class="categories-scroll-dark categories-left-dark d-flex justify-content-center align-items-center h-100">
+                    <div id="left-arrow" class="rounded-circle p-2" style="margin-left: -1.3em;"><span class="fas fa-chevron-left"></span></div>
+                </div>
+                
+                <div class="categories categories-dark d-flex px-3">
+                    {% for category in categories %}
+                        {% if forloop.first %}
+                            <button class="category category-dark category-dark-selected rounded-pill d-flex font-roboto fw-400 my-auto mx-2">
+                                <div style="font-size: 11pt;" class="my-auto">{{ category }}</div>
+                            </button>
+                        {% else %}
+                            <button class="category category-dark rounded-pill d-flex font-roboto fw-400 my-auto mx-2">
+                                <div style="font-size: 11pt;" class="my-auto">{{ category }}</div>
+                            </button>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div class="categories-scroll-dark categories-right-dark d-flex justify-content-center align-items-center h-100">
+                    <div id="right-arrow" class="rounded-circle p-2" style="margin-right: -1.3em;"><span class="fas fa-chevron-right"></span></div>
+                </div>
+
             </div>
 
             <div class="mainpage mainpage-dark">

@@ -124,15 +124,10 @@
     height: 100% !important;
 }
 
-.no-text-color-change, .no-text-color-change:hover, .no-text-color-change:visited { color: inherit; }
-
-/*! keep in mind that this is a hacky method (i think) */
-.vertically-centered-div
+.all-auto, .hw-auto, .wh-auto
 {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-
+    width: auto !important;
+    height: auto !important;
 }
+
+.no-text-color-change, .no-text-color-change:hover, .no-text-color-change:visited { color: inherit; }

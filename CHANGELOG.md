@@ -1,17 +1,24 @@
-# Build b20211103-01
+# Build b20211106-01
 
 ## **Build Highlights**
 
-An official changelog! Yay! This should (hopefully) serve as proof that I have high hopes for this project. The (one of the) most annoying issue of checkboxes not working in Markdown syntax was annoying, so that was fixed first.
+Kill me now. I have been working on one goddamn feature for over 8 hours and cannot find a fix. I'm going to sleep.
 
 ## **New Features/Additions**
 
-- Added official changelog
-- Working on index page of YouTube.
-  - Base colors added
-  - Categories system added (note: needs selection on click)
+- Working on categories selector
+  - Added more categories
+  - Added (as of yet nonfunctional) arrows for scrolling.
+  - Added YouTube menu icon
+  - Added YouTube logo
 
 ## **Changes/Fixes**
 
-- **checkboxes:** Markdown checkboxes now functional in README.md file.
-- **favicon:** Removed the extra url pattern for favicon from urls.py file in core app. Now, it is implemented using HTML in the base.html template.
+Nothing to see here for this update/release.
+
+## **Agenda For Next Update**
+
+- Fix up the README.md
+- Fix scrolling of categories
+- Fix width issue of page
+- Only show arrows if you can scroll in that direction

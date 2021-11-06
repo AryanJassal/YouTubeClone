@@ -18,6 +18,10 @@
 .fw-300 { font-weight: 300; }
 .fw-200 { font-weight: 200; }
 .fw-100 { font-weight: 100; }
+.fw-lighter { font-weight: lighter; }
+.fw-normal { font-weight: normal; }
+.fw-bold { font-weight: bold; }
+.fw-bolder { font-weight: bolder; }
 
 .text-white { color: white; }
 .text-black { color: black; }
