@@ -9,7 +9,8 @@ body
 .sidenav
 {
     height: 100%;
-    flex: 0 0 15em;
+    flex: 0 0 15em !important;
+    /*flex-shrink: 0;*/
 }
 
 .sidenav-collapsed { flex: 0 0 auto !important; }
@@ -30,10 +31,10 @@ body
 {
     height: 3.6rem;
     border-bottom: 1px solid #333;
-    padding: 5em 0;
-    overflow-x: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    /*padding: auto 0;*/
+    overflow-x: hidden;
+    /*-ms-overflow-style: none;*/
+    /*scrollbar-width: none;*/
 }
 
 .categories::-webkit-scrollbar

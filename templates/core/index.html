@@ -2,47 +2,41 @@
 {% load static %}
 
 {% block body %}
-    <div class="body-container d-flex all-100">
-        <div class="sidenav sidenav-dark d-flex flex-column">
-            <div class="youtube-logo-wrapper d-flex inline-flex">
-                <button class="menu-icon-wrapper menu-dark" onclick="toggleSideNav();">
-                    <ion-icon name="menu-outline"></ion-icon>
-                </button>
-                <div class="youtube-logo">
-                    <a href="{% url 'home' %}">
-                        <img src="{% static 'images/youtube_logo.png' %}" alt="YouTube" class="img-responsive logo">
-                    </a>
+    <div class="body-container container-fluid flex-nowrap p-0 all-100">
+        <div class="row flex-nowrap h-100">
+            <div class="col-2 sidenav sidenav-dark d-flex flex-column">
+                <div class="youtube-logo-wrapper d-flex inline-flex">
+                    <button class="menu-icon-wrapper menu-dark" onclick="toggleSideNav();">
+                        <ion-icon name="menu-outline"></ion-icon>
+                    </button>
+                    <div class="youtube-logo">
+                        <a href="{% url 'home' %}">
+                            <img src="{% static 'images/youtube_logo.png' %}" alt="YouTube" class="img-responsive logo">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="mainpage-container d-flex flex-column">
+        <div class="col-10 mainpage-container d-flex flex-column">
             <div class="topnav topnav-dark">
             </div>
 
-            <div class="categories-wrapper d-flex flex-row minw-100">
-                <div class="categories-scroller categories-left-dark d-flex justify-content-center align-items-center flex-grow-1">
-                    <div id="left-arrow" class="rounded-circle p-2" style="margin-left: -1.3em;"><span class="fas fa-chevron-left"></span></div>
+            <div class="categories-wrapper w-100">
+                    <div class="categories categories-dark d-flex maxw-100">
+                        {% for category in categories %}
+                            {% if forloop.first %}
+                                <button class="category category-dark category-dark-selected rounded-pill font-roboto fw-400 my-auto mx-2">
+                                    <span style="font-size: 11pt;" class="my-auto">{{ category }}</span>
+                                </button>
+                            {% else %}
+                                <button class="category category-dark rounded-pill font-roboto fw-400 my-auto mx-2">
+                                    <span style="font-size: 11pt;" class="my-auto">{{ category }}</span>
+                                </button>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
-                
-                <div class="categories categories-dark d-flex px-3">
-                    {% for category in categories %}
-                        {% if forloop.first %}
-                            <button class="category category-dark category-dark-selected rounded-pill d-inline-block font-roboto fw-400 my-auto mx-2">
-                                <span style="font-size: 11pt;" class="my-auto">{{ category }}</span>
-                            </button>
-                        {% else %}
-                            <button class="category category-dark rounded-pill d-flex font-roboto fw-400 my-auto mx-2">
-                                <span style="font-size: 11pt;" class="my-auto">{{ category }}</span>
-                            </button>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-
-                <div class="categories-scroller categories-right-dark d-flex justify-content-center align-items-center h-100">
-                    <div id="right-arrow" class="rounded-circle p-2" style="margin-right: -1.3em;"><span class="fas fa-chevron-right"></span></div>
-                </div>
-
             </div>
 
             <div class="mainpage mainpage-dark all-100">
