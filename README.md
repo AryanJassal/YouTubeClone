@@ -2,7 +2,9 @@
 
 ## Just what the heck is this??
 
-This is still under development. I should have something to show here soon. Until then, satisfy yourself with the knowledge that this is a (yet another) clone of the popular video streaming service known as YouTube, which is currently maintained by Google. This clone will be made using Python 3 and the Django framework. This readme is just made as a stopgap for now. More content will be added later.
+You must have heard of YouTube, the most popular video streaming service (unless you live under a rock). This is an attempt to recreate YouTube, owned by Google, using Python 3 and Django Framework. You should be warned: this application is still under development and will be for quite a while.
+
+This is a project I'm working on for more practice with Django and learning the ins-and-outs of this framework. Note that pull requests will not be accepted. This may change in the future (very unlikely).
 
 For more in-depth information on changes and releases, view the [CHANGELOG.md](https://github.com/AryanJassal/YouTubeClone/blob/master/CHANGELOG.md) file.
 
@@ -10,12 +12,8 @@ Google please don't sue me this is just for learning. Yes, as far as I know, the
 
 Oh, and I should probably add this disclaimer: **Do not try this at home. Google may sue you.**
 
-## Known Issues
+## Notes
 
-I'm aware of these issues and I'm working on it! For a more comprehensive list (maybe?) view the changelog.
+I'm aware of these *gotcha*'s, and you should be too.
 
-- [x] Favicon not showing up in Google Chrome but it shows up in Firefox (Note that the favicon in Chrome will not be loaded for local servers as that's just how Chrome works.)
-- [ ] Fix the goddamn width of the entire *bleeping* categories container.
-- [ ] Make the goddamn scroll thingy working.
-- [ ] Fix the pixelated logo/image in chrome
-- [ ] Find a way to get no `font-size: bold` for fontawesome icons.
+- Site favicon will not show up in Google Chrome if you are using localhost (127.0.0.1) to host this website, although it will work well in other browsers. (Tested only in Firefox)
