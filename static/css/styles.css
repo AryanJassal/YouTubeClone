@@ -10,10 +10,9 @@ body
 {
     height: 100%;
     flex: 0 0 15em !important;
-    /*flex-shrink: 0;*/
 }
 
-.sidenav-collapsed { flex: 0 0 auto !important; }
+.sidenav-collapsed { flex: 0 0 1em !important; }
 
 .sidenav-dark { background-color: #222; }
 
@@ -27,14 +26,18 @@ body
 
 .topnav-dark { background-color: #222; }
 
+.categories-wrapper
+{
+    overflow-x: auto;
+}
+
 .categories
 {
     height: 3.6rem;
     border-bottom: 1px solid #333;
-    /*padding: auto 0;*/
-    overflow-x: hidden;
-    /*-ms-overflow-style: none;*/
-    /*scrollbar-width: none;*/
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .categories::-webkit-scrollbar

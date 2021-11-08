@@ -1,20 +1,21 @@
-# Build b20211107-01
+# Build b20211108-01
 
 ## **Build Highlights**
 
-Minor quality change: pixelated image in Chrome fixed. Also, completely off-topic but the menu toggle is working! I'm still tearing my own head off because I can't fix the goddamn sizing problem.
+MAJOR BREAKTRHOUGH!! The issue with categories going off-screen is fixed. Now, to work on the categories not being the actual screen width and just being funky in general.
+
+Oh, and also, I've added another icon library: `ico-icons` to my icon/UI library. Oh how I wish I had fontawesome pro.
 
 ## **New Features/Additions**
 
-- Hamburger menu icon properly toggles the sidenav menu.
+No changes/additions as of this update.
 
 ## **Changes/Fixes**
 
-- Pixelated downscaled logo/image in Chrome fixed.
+- Fixed the width of categories from going too wide.
 
 ## **Agenda For Next Update**
 
-- Fix scrolling of categories
-- Fix width issue of page
+- Make the width play nice
+- Add the arrows to scroll through categories again.
 - Only show arrows if you can scroll in that direction
-- Find a way to get no `font-size: bold` for fontawesome icons.
