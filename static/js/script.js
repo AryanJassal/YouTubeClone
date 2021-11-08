@@ -5,19 +5,19 @@ document.addEventListener('DOMContentLoaded', function()
 
     $('#right-arrow').click(function() {
         var scrollPos = $('.categories').scrollLeft();
-        $('.categories').animate({scrollLeft: scrollPos + scrollMultiplier }, scrollTime);
+        $('.categories').animate({ scrollLeft: scrollPos + scrollMultiplier }, scrollTime);
     });
 
     $('#left-arrow').click(function() {
         var scrollPos = $('.categories').scrollLeft();
-        $('.categories').animate({scrollLeft: scrollPos - scrollMultiplier }, scrollTime);
+        $('.categories').animate({ scrollLeft: scrollPos - scrollMultiplier }, scrollTime);
     });
 
     $('.categories').on('mousewheel DOMMouseScroll', function(event){
 
         var delta = Math.max(-1, Math.min(1, (event.originalEvent.wheelDelta || -event.originalEvent.detail)));
 
-        $(this).scrollLeft( $(this).scrollLeft() - ( delta * 40 ) );
+        $(this).stop().animate({scrollLeft: $(this).scrollLeft() - (delta * 100) }, 100);
         event.preventDefault();
     });
 });

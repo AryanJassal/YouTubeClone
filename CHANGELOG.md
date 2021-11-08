@@ -1,15 +1,12 @@
-# Build b20211108-02
+# Build b20211109-01
 
 ## **Build Highlights**
 
-Arrow buttons functional.
-
-I always forget to change build number. Not this time!
+Horizontal smooth mouse scroll in categories not functional. Minor changes, I know, but still! One step at a time.
 
 ## **New Features/Additions**
 
-- Added the category navigation arrows (again)
-- Arrows actually functional - they scroll!!
+- Horizontal scrolling now works for the categories
 
 ## **Changes/Fixes**
 
@@ -18,4 +15,8 @@ None as of this update.
 ## **Agenda For Next Update**
 
 - Only show arrows if you can scroll in that direction
-- Scroll smoothly while using mouse wheel
+- Start making the mainpage with video and thumbnails
+- Build the skeleton for topnav (searching, accounts, etc.)
+- Clean up javascript code
+- Clean up css code
+- Clean up html code
