@@ -17,5 +17,3 @@ Oh, and I should probably add this disclaimer: **Do not try this at home. Google
 I'm aware of these *gotcha*'s, and you should be too.
 
 - Site favicon will not show up in Google Chrome if you are using localhost (127.0.0.1) to host this website, although it does work in other browsers. (Tested only in Firefox)
-
-**Update**: As of 8 November 2021, I will resume actively working on this project as I was able to (finally) fix the bug that has been haunting me for three days and nights.

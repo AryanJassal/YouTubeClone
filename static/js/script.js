@@ -5,20 +5,26 @@ document.addEventListener('DOMContentLoaded', function()
 
     $('#right-arrow').click(function() {
         var scrollPos = $('.categories').scrollLeft();
-        $('categories').animate({scrollLeft: scrollPos + scrollMultiplier }, scrollTime);
-        console.log(scrollPos + 200);
+        $('.categories').animate({scrollLeft: scrollPos + scrollMultiplier }, scrollTime);
     });
 
     $('#left-arrow').click(function() {
         var scrollPos = $('.categories').scrollLeft();
-        $('categories').animate({scrollLeft: scrollPos - scrollMultiplier }, scrollTime);
-        console.log(scrollPos + 200);
+        $('.categories').animate({scrollLeft: scrollPos - scrollMultiplier }, scrollTime);
+    });
+
+    $('.categories').on('mousewheel DOMMouseScroll', function(event){
+
+        var delta = Math.max(-1, Math.min(1, (event.originalEvent.wheelDelta || -event.originalEvent.detail)));
+
+        $(this).scrollLeft( $(this).scrollLeft() - ( delta * 40 ) );
+        event.preventDefault();
     });
 });
 
 toggleSideNav = function()
 {
-    if ($('.sidenav').hasClass('sidenav-collapsed')) 
+    if ($('.sidenav').hasClass('sidenav-collapsed'))
         $('.sidenav').removeClass('sidenav-collapsed')
     else
         $('.sidenav').addClass('sidenav-collapsed')
