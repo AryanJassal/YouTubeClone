@@ -18,4 +18,4 @@ I'm aware of these *gotcha*'s, and you should be too.
 
 - Site favicon will not show up in Google Chrome if you are using localhost (127.0.0.1) to host this website, although it does work in other browsers. (Tested only in Firefox)
 
-**Update**: I will no longer be actively working on this project any longer as of 7 November 2021. A stupid bug has given me too much grief. I may continue doing this again in the future (highly unlikely).
+**Update**: As of 8 November 2021, I will resume actively working on this project as I was able to (finally) fix the bug that has been haunting me for three days and nights.

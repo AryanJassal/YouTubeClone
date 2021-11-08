@@ -142,8 +142,6 @@
 
 .no-text-color-change, .no-text-color-change:hover, .no-text-color-change:visited { color: inherit; }
 
-.flex-1 { flex: 1 !important; }
-
 .overflow-x-auto { overflow-x: auto; }
 .overflow-y-auto { overflow-y: auto; }
 .overflow-auto, .overflow-all-auto, .overflow-xy-auto { overflow: auto; }
