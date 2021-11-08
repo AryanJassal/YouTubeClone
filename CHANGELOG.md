@@ -2,7 +2,7 @@
 
 ## **Build Highlights**
 
-Horizontal smooth mouse scroll in categories not functional. Minor changes, I know, but still! One step at a time.
+Horizontal smooth mouse scroll in categories now functional. Minor changes, I know, but still! One step at a time.
 
 ## **New Features/Additions**
 
