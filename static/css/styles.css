@@ -12,9 +12,14 @@ body
     flex: 0 0 15em !important;
 }
 
-.sidenav-collapsed { flex: 0 0 1em !important; }
+.sidenav-collapsed { flex-basis: 1em !important; }
 
 .sidenav-dark { background-color: #222; }
+
+.mainpage-container
+{
+    min-width: 0 !important;
+}
 
 .mainpage-dark { background-color: #181818; }
 
@@ -29,6 +34,8 @@ body
 .categories-wrapper
 {
     overflow-x: auto;
+    flex-grow: 1;
+    flex-basis: auto;
 }
 
 .categories
@@ -111,6 +118,7 @@ body
     width: 6em !important;
     min-width: 6em !important;
     max-width: 6em !important;
+    max-height: 3.6em;
     z-index: 10;
 }
 
