@@ -1,31 +1,30 @@
-document.addEventListener('DOMContentLoaded', function()
+$(document).ready(() =>
 {
     var scrollMultiplier = 200;
     var scrollTime = 300;
 
-    $('#right-arrow').click(function() {
-        var scrollPos = $('.categories').scrollLeft();
-        $('.categories').animate({ scrollLeft: scrollPos + scrollMultiplier }, scrollTime);
+    var categories = $('.categories');
+
+    $('#right-arrow').click(() => {
+        var scrollPos = categories.scrollLeft();
+        categories.animate({ scrollLeft: scrollPos + scrollMultiplier }, scrollTime);
     });
 
-    $('#left-arrow').click(function() {
-        var scrollPos = $('.categories').scrollLeft();
-        $('.categories').animate({ scrollLeft: scrollPos - scrollMultiplier }, scrollTime);
+    $('#left-arrow').click(() => {
+        var scrollPos = categories.scrollLeft();
+        categories.animate({ scrollLeft: scrollPos - scrollMultiplier }, scrollTime);
     });
 
-    $('.categories').on('mousewheel DOMMouseScroll', function(event){
+    /* NOTE: jquery.hscroll.min.js is still imported. Do things with it later */
 
-        var delta = Math.max(-1, Math.min(1, (event.originalEvent.wheelDelta || -event.originalEvent.detail)));
-
-        $(this).stop().animate({scrollLeft: $(this).scrollLeft() - (delta * 100) }, 100);
-        event.preventDefault();
-    });
 });
 
-toggleSideNav = function()
+function toggleSideNav()
 {
-    if ($('.sidenav').hasClass('sidenav-collapsed'))
-        $('.sidenav').removeClass('sidenav-collapsed')
+    var sidenav = $('.sidenav');
+
+    if (sidenav.hasClass('sidenav-collapsed'))
+        sidenav.removeClass('sidenav-collapsed')
     else
-        $('.sidenav').addClass('sidenav-collapsed')
+        sidenav.addClass('sidenav-collapsed')
 }
